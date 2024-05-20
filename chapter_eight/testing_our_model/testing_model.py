@@ -7,8 +7,8 @@ from flitton_oasis_risk_modelling import construct_model
 
 
 def python_construct_model(event_ids):
-    vulnerabilities = pd.read_csv("./vulnerability.csv")
-    foot_print = pd.read_csv("./footprint.csv")
+    vulnerabilities = pd.read_csv("../vulnerability.csv")
+    foot_print = pd.read_csv("../footprint.csv")
     event_ids = pd.DataFrame(event_ids)
     model = pd.merge(
         event_ids, foot_print, how="inner", on="event_id"
@@ -67,3 +67,4 @@ if __name__ == "__main__":
     plt.plot(x, python_y)
     plt.plot(x, rust_y)
     plt.show()
+    plt.savefig('./foo.png')
